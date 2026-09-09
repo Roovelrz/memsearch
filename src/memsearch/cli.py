@@ -629,7 +629,7 @@ def watch(
     if not registry.acquire():
         click.echo("A watcher is already running for these paths.")
         return
-    
+        
     ms = None
     watcher = None
     try:
