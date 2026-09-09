@@ -629,21 +629,7 @@ def watch(
     if not registry.acquire():
         click.echo("A watcher is already running for these paths.")
         return
-    cfg = _safe_resolve_config(
-        _build_cli_overrides(
-            provider=provider,
-            model=model,
-            batch_size=batch_size,
-            base_url=base_url,
-            api_key=api_key,
-            collection=collection,
-            milvus_uri=milvus_uri,
-            milvus_token=milvus_token,
-            debounce_ms=debounce_ms,
-            max_chunk_size=max_chunk_size,
-        ),
-        default_overrides=_build_cli_overrides(collection=default_collection),
-    )
+    
     ms = None
     watcher = None
     try:
